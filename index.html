@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Практическое задание</title>
+</head>
+<body>
+  <p>Введите сумму, чтобы рассчитать ваш вклад к концу года с учетом процентной ставки 7% годовых.</p>
+  <input class="sum" type="number" placeholder="Введите сумму в рублях">
+  <button class="button">Рассчитать</button>
+  <p>Итого: <span class="total"></span> </p>
+
+<script>
+  const button = document.querySelector('.button');
+  const total = document.querySelector('.total');
+
+  const interestRate = 0.07; // 7% годовых
+  const deposit = 30000; // Основная сумма вклада
+  const growth = 150; // Дополнительный прирост
+  const currency = 'руб'; // Валюта
+
+  const message = `Ваш депозит на начало расчетного периода составлял ${deposit} ${currency} на счету`;
+  console.log(message);
+  
+  button.addEventListener('click', () => {
+    const sum = parseFloat(document.querySelector('.sum').value); // Получаем сумму вклада от пользователя
+
+    if (isNaN(sum) || sum <= 0) {
+      total.textContent = "Введите корректную сумму.";
+      return;
+    }
+
+    const finalAmount = deposit + (sum * (1 + interestRate)) + growth; // Рассчитываем итоговую сумму с учётом процентной ставки и прироста
+    const message = `Через год у вас будет ${finalAmount.toFixed(2)} ${currency} на счету`; // Создаем сообщение с результатом
+
+    total.textContent = message; // Выводим сообщение на экран
+});
+</script>
+</body>
+</html>
