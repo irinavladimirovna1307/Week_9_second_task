@@ -1,4 +1,4 @@
-# Week_9_second_task
+# Week9_second_task
 
 Задание в codepen: https://codepen.io/ketirudneva/pen/PoRdqaQ
 
